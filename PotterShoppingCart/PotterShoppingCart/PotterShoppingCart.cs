@@ -15,12 +15,29 @@ namespace PotterShoppingCart
         private const int BOOK_ORIGINALPRICE = 100;
         public int CountShoppingCartPrice(IEnumerable<BookOrderData> orders)
         {
-            var totalprice = 0;
+            var totalPrice = 0;
+            var setAmount = 0;
             foreach (var order in orders)
             {
-                totalprice += (order.Amount * BOOK_ORIGINALPRICE);
+                if (setAmount == 0)
+                {
+                    setAmount = order.Amount;
+                }
+                else
+                {
+                    setAmount = Math.Min(setAmount, order.Amount);
+                }
             }
-            return totalprice;
+
+            totalPrice += (int)(setAmount * 2 * BOOK_ORIGINALPRICE * 0.95);
+
+            foreach (var order in orders)
+            {
+                totalPrice += (order.Amount - setAmount) * BOOK_ORIGINALPRICE;
+            }
+            
+
+            return totalPrice;
         }
     }
 }
