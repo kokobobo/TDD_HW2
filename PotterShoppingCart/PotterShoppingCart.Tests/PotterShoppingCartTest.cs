@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PotterShoppingCart.Tests
-{    
-
-
+{
     [TestClass]
     public class PotterShoppingCartTest
-    {       
+    {
         [TestMethod]
         public void Test_買_第一集_一本_價格為_100()
         {
