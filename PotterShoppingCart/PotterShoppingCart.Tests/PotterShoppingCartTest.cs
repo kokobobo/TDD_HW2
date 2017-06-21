@@ -4,17 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PotterShoppingCart.Tests
 {    
-    public class BookOrderData
-    {
-        public int Volumn { get; set; }
-        public int Amount { get; set; }
-    }
+
 
     [TestClass]
     public class PotterShoppingCartTest
-    {
-        private const int BOOK_ORIGINALPRICE = 100;
-
+    {       
         [TestMethod]
         public void Test_買_第一集_一本_價格為_100()
         {
@@ -23,22 +17,15 @@ namespace PotterShoppingCart.Tests
             {
                new BookOrderData() { Volumn = 1, Amount = 1}
             };
-            
+
+            var target = new PotterShoppingCart();
             var expected = 100;
             // act
-            var actual = CountShoppingCartPrice(orders);
+            var actual = target.CountShoppingCartPrice(orders);
             // assert
             Assert.AreEqual(expected, actual);
         }
 
-        public int CountShoppingCartPrice(IEnumerable<BookOrderData> orders)
-        {
-            var totalprice = 0;
-            foreach (var order in orders)
-            {
-                totalprice += (order.Amount * BOOK_ORIGINALPRICE);
-            }
-            return totalprice;
-        }
+        
     }
 }
