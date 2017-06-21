@@ -41,24 +41,29 @@ namespace PotterShoppingCart
             foreach (var orderGroup in orderGroupList)
             {
                 switch (orderGroup.Count)
-                { 
-                 case 1: // 原價
+                {
+                    case 1: // 原價
 
-                    totalPrice += orderGroup.Count * BOOK_ORIGINALPRICE;
-                    break;
+                        totalPrice += orderGroup.Count * BOOK_ORIGINALPRICE;
+                        break;
 
-                case 2: // 2本95折
+                    case 2: // 2本95折
 
-                    totalPrice += (int)(orderGroup.Count * BOOK_ORIGINALPRICE * 0.95);
-                    break;
+                        totalPrice += (int)(orderGroup.Count * BOOK_ORIGINALPRICE * 0.95);
+                        break;
 
-                case 3: // 3本9折
+                    case 3: // 3本9折
 
-                    totalPrice += (int)(orderGroup.Count * BOOK_ORIGINALPRICE * 0.9);
-                    break;
+                        totalPrice += (int)(orderGroup.Count * BOOK_ORIGINALPRICE * 0.9);
+                        break;
 
-                default:
-                    throw new Exception("This order is illegal (unknown book?)");
+                    case 4: // 4本8折
+
+                        totalPrice += (int)(orderGroup.Count * BOOK_ORIGINALPRICE * 0.8);
+                        break;
+
+                    default:
+                        throw new Exception("This order is illegal (unknown book?)");
                 }
             }
 
