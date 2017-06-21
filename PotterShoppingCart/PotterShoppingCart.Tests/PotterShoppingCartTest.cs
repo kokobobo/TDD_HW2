@@ -33,7 +33,12 @@ namespace PotterShoppingCart.Tests
 
         public int CountShoppingCartPrice(IEnumerable<BookOrderData> orders)
         {
-            return 0;
+            var totalprice = 0;
+            foreach (var order in orders)
+            {
+                totalprice += (order.Amount * BOOK_ORIGINALPRICE);
+            }
+            return totalprice;
         }
     }
 }
