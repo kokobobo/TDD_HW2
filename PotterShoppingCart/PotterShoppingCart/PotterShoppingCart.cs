@@ -62,6 +62,11 @@ namespace PotterShoppingCart
                         totalPrice += (int)(orderGroup.Count * BOOK_ORIGINALPRICE * 0.8);
                         break;
 
+                    case 5: // 5本75折
+
+                        totalPrice += (int)(orderGroup.Count * BOOK_ORIGINALPRICE * 0.75);
+                        break;
+
                     default:
                         throw new Exception("This order is illegal (unknown book?)");
                 }
